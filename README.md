@@ -4,7 +4,7 @@
 
 |        | PubMedQA | MedMCQA | MedQA |  Avg  |
 | :-----: | :------: | :-----: | :---: | :---: |
-| Acc (%) |   71.20  |  58.11  | 61.98 | 63.76 |
+| Acc (%) |   72.60  |  58.64  | 63.39 | 64.88 |
 
 #### Communication budget: used 1040.31 MB (5th round).
 
