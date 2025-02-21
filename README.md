@@ -6,7 +6,7 @@
 | :-----: | :------: | :-----: | :---: | :---: |
 | Acc (%) |   71.20  |  58.11  | 61.98 | 63.76 |
 
-# Communication budget: used 1040.31 MB (last round)
+#### Communication budget: used 1040.31 MB (last round)
 
 ### Evaluation of the baseline model proposed 
 
