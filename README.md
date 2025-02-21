@@ -24,7 +24,7 @@ which allows users to perform the training on a single GPU.
 ## Changes from baseline
 
 * Following the advances obtained with the approach presented by the [Gachon Cognitive Computing Lab](https://github.com/gachon-CCLab/GCCL-Medical-LLM-FlowerTune), we have used as a base model the [ContactDoctor/Bio-Medical-Llama-3-8B](https://huggingface.co/ContactDoctor/Bio-Medical-Llama-3-8B) fine tuned model.
-* We train the model during 5 rounds. Although we set `num-server-rounds = 20`, we take the checckpoint obtained in round 5 (peft_5).
+* We train the model during 5 rounds. Although we set `num-server-rounds = 20`, we take the checkpoint obtained in round 5 ([peft_5](https://github.com/judithspd/ai4os-fedllm-medical/tree/main/flowertune-eval-medical/peft_5)).
 * We train the model locally during 5 epochs: `train.training-arguments.num-train-epochs = 5`
 * We use the [FedAvgOpt](https://arxiv.org/abs/2501.15949) aggregation function.
 
@@ -47,7 +47,7 @@ pip install -e .
 ## Experimental setup
 
 The dataset is divided into 20 partitions in an IID fashion, a partition is assigned to each ClientApp.
-We randomly sample a fraction (0.1) of the total nodes to participate in each round, for a total of `200` rounds.
+We randomly sample a fraction (0.1) of the total nodes to participate in each round, for a total of `20` rounds (but we take the checkpoint for round 5).
 All settings are defined in `pyproject.toml`.
 
 
