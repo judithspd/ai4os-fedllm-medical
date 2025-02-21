@@ -13,9 +13,9 @@
 | Acc (%) |   59.00  |  23.69  | 27.10 | 36.60 |  
 
 
-### Introduction
+### Basaline
 
-This directory conducts federated instruction tuning with a pretrained [Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-v0.3) model on a [Medical dataset](https://huggingface.co/datasets/medalpaca/medical_meadow_medical_flashcards).
+The baseline challenge conducts federated instruction tuning with a pretrained [Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-v0.3) model on a [Medical dataset](https://huggingface.co/datasets/medalpaca/medical_meadow_medical_flashcards).
 We use [Flower Datasets](https://flower.dev/docs/datasets/) to download, partition and preprocess the dataset.
 Flower's Simulation Engine is used to simulate the LLM fine-tuning process in federated way,
 which allows users to perform the training on a single GPU.
