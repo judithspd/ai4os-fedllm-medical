@@ -4,9 +4,9 @@
 
 |        | PubMedQA | MedMCQA | MedQA |  Avg  |
 | :-----: | :------: | :-----: | :---: | :---: |
-| Acc (%) |   72.60  |  58.64  | 63.39 | 64.88 |
+| Acc (%) |   70.80  |  58.04  | 62.84 | 63.89 |
 
-#### Communication budget: used 1040.31 MB (5th round).
+#### Communication budget: 2080.62 MB
 
 ### Evaluation of the baseline model proposed 
 
@@ -26,9 +26,19 @@ which allows users to perform the training on a single GPU.
 ## Changes from baseline
 
 * Following the advances obtained with the approach presented by the [Gachon Cognitive Computing Lab](https://github.com/gachon-CCLab/GCCL-Medical-LLM-FlowerTune), we have used as a base model the [ContactDoctor/Bio-Medical-Llama-3-8B](https://huggingface.co/ContactDoctor/Bio-Medical-Llama-3-8B) fine tuned model.
-* We train the model during 5 rounds. Although we set `num-server-rounds = 20`, we take the checkpoint obtained in round 5 ([peft_5](https://github.com/judithspd/ai4os-fedllm-medical/tree/main/flowertune-eval-medical/peft_5)).
-* We train the model locally during 5 epochs: `train.training-arguments.num-train-epochs = 5`
+* We train the model during 10 rounds, `num-server-rounds = 10`, see [peft_10](https://github.com/judithspd/ai4os-fedllm-medical/tree/main/flowertune-eval-medical/peft_10).
+* We train the model locally during 2 epochs: `train.training-arguments.num-train-epochs = 2`.
 * We use the [FedAvgOpt](https://arxiv.org/abs/2501.15949) aggregation function.
+
+
+## Aditional setting
+
+We include this new scenario in case any user wants to reproduce it.
+During the search for the model that would give us the best performance, we found that the setting in which we train for 5 epochs in each client and 20 rounds, gives the following results for the checkpooint of round 5:
+
+|        | PubMedQA | MedMCQA | MedQA |  Avg  |
+| :-----: | :------: | :-----: | :---: | :---: |
+| Acc (%) |   72.60  |  58.64  | 63.39 | 64.88 |
 
 
 ## Methodology
@@ -69,5 +79,7 @@ flwr run .
 Evaluation in the three baseline datasets:
 
 ```bash
-python eval.py --base-model-name-path="ContactDoctor/Bio-Medical-Llama-3-8B" --peft-path="peft_5" --batch-size=16 --quantization=4 --datasets=pubmedqa,medmcqa,medqa
+python eval.py --base-model-name-path="ContactDoctor/Bio-Medical-Llama-3-8B" --peft-path="peft_10" --batch-size=16 --quantization=4 --datasets=pubmedqa,medmcqa,medqa
 ```
+
+
