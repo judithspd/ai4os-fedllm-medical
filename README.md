@@ -34,7 +34,7 @@ which allows users to perform the training on a single GPU.
 ## Aditional setting
 
 We include this new scenario in case any user wants to reproduce it.
-During the search for the model that would give us the best performance, we found that the setting in which we train for 5 epochs in each client and 20 rounds, gives the following results for the checkpooint of round 5:
+During the search for the model that would give us the best performance, we found that the setting in which we use the [ContactDoctor/Bio-Medical-Llama-3-8B](https://huggingface.co/ContactDoctor/Bio-Medical-Llama-3-8B) model, the [FedAvgOpt](https://arxiv.org/abs/2501.15949) aggregation function and we train for 5 epochs in each client and 20 rounds, gives the following results for the checkpooint of round 5:
 
 |        | PubMedQA | MedMCQA | MedQA |  Avg  |
 | :-----: | :------: | :-----: | :---: | :---: |
