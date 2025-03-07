@@ -1,27 +1,19 @@
 # FlowerTune LLM on Medical Dataset
 
-### Evaluation in the three baseline datasets:
+### Introduction
+
+This directory conducts federated instruction tuning with a pretrained[ContactDoctor/Bio-Medical-Llama-3-8B](https://huggingface.co/ContactDoctor/Bio-Medical-Llama-3-8B) model on a [Medical dataset](https://huggingface.co/datasets/medalpaca/medical_meadow_medical_flashcards).
+We use [Flower Datasets](https://flower.dev/docs/datasets/) to download, partition and preprocess the dataset.
+Flower's Simulation Engine is used to simulate the LLM fine-tuning process in federated way,
+which allows users to perform the training on a single GPU.
+
+### Evaluation in the three baseline datasets with the proposed approach:
 
 |        | PubMedQA | MedMCQA | MedQA |  Avg  |
 | :-----: | :------: | :-----: | :---: | :---: |
 | Acc (%) |   70.80  |  58.04  | 62.84 | 63.89 |
 
 #### Communication budget: 2080.62 MB
-
-### Evaluation of the baseline model proposed 
-
-|        | PubMedQA | MedMCQA | MedQA |  Avg  |
-| :-----: | :------: | :-----: | :---: | :---: |
-| Acc (%) |   59.00  |  23.69  | 27.10 | 36.60 |  
-
-
-### Introduction
-
-This directory conducts federated instruction tuning with a pretrained [Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-v0.3) model on a [Medical dataset](https://huggingface.co/datasets/medalpaca/medical_meadow_medical_flashcards).
-We use [Flower Datasets](https://flower.dev/docs/datasets/) to download, partition and preprocess the dataset.
-Flower's Simulation Engine is used to simulate the LLM fine-tuning process in federated way,
-which allows users to perform the training on a single GPU.
-
 
 ## Changes from baseline
 
@@ -59,7 +51,7 @@ pip install -e .
 ## Experimental setup
 
 The dataset is divided into 20 partitions in an IID fashion, a partition is assigned to each ClientApp.
-We randomly sample a fraction (0.1) of the total nodes to participate in each round, for a total of `20` rounds (but we take the checkpoint for round 5).
+We randomly sample a fraction (0.1) of the total nodes to participate in each round, for a total of `10` rounds.
 All settings are defined in `pyproject.toml`.
 
 
