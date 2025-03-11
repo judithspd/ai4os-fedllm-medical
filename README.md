@@ -14,7 +14,7 @@ which allows users to perform the training on a single GPU.
 | Acc (%) |   70.80  |  58.04  | 62.84 | 63.89 |
 
 #### Communication budget: 2080.62 MB*
-*Note that this value has been obtained when running the experiemnt using a NVIDIA GPU Tesla V100-PCIE-32GB.
+*Note that this value has been obtained when running the experiment using a NVIDIA GPU Tesla V100-PCIE-32GB.
 
 ## Changes from baseline
 
